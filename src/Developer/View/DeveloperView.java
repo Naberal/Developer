@@ -40,7 +40,11 @@ public class DeveloperView {
                 controller.saveDeveloper(developersData());
             } else if (operation == 3) {
                 System.out.println("Enter developer Id");
-                controller.upDataDeveloper(newData(scanner()));
+                developer = new DeveloperDAO().getById(scanner());
+                if ((developer.getId())==0){
+                    System.out.println("Developer is not found.");
+                }else {
+                controller.upDataDeveloper(newData(developer));}
             } else if (operation == 4) {
                 System.out.println("Enter Id");
                 controller.getById(scanner());
@@ -77,11 +81,7 @@ public class DeveloperView {
         developer.setSalary(new BigDecimal(scanner()));
         return developer;
     }
-    private Developer newData(long id){
-        developer = new DeveloperDAO().getById(id);
-        if ((developer.getId())==0){
-            return null;
-        }else {
+    private Developer newData(Developer developer){
         while (true) {
             System.out.println("what you want to updata?");
             System.out.println("1. FirstName");
@@ -95,7 +95,6 @@ public class DeveloperView {
         }
         return developer;
     }
-}
 
     private boolean operationsForUpData(int operation) {
         if (operation ==1 ) {

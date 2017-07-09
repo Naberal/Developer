@@ -74,14 +74,10 @@ public class DeveloperDAO {
         }
     }
     public void update(Developer developer){
-        if (developer.equals(null)){
-            System.out.println("Developer is not found.");
-        }
-        else {
             delete(developer.getId());
             save(developer);
             System.out.println("Developer with id "+developer.getId()+" is successfully updata");}
-    }
+
     public void delete(long id){
             String buffer=null;
             StringBuffer stringBuffer = new StringBuffer();
@@ -90,8 +86,8 @@ public class DeveloperDAO {
                     if (buffer.isEmpty()) {
                         continue;
                     }
-                    int idToDelete=buffer.charAt(0)-'0';
-                    if (!(idToDelete==id)){
+                    String idDeveloper=buffer.substring(0,buffer.indexOf(','));
+                    if (!(idDeveloper.equals(String.valueOf(id)))){
                     stringBuffer.append(buffer).append("\n");}
                 }
                 buffer = stringBuffer.toString();
