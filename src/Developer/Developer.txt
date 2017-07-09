@@ -1,0 +1,5 @@
+1,Denys,Varlashyn,java,4,2800
+2,Serhii,Huselnykov,c++,2,2000
+3,Pavlo,Dudkin,php,3,1500
+4,Lina,Burkalo,java,5,3300
+5,Yevhenii,Skliarov,c,1,800
